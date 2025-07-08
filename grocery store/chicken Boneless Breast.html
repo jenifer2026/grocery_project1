@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Premium Chicken Whole Skinless</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    line-height: 1.6;
+  }
+
+  .product-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .product-details {
+    flex: 1;
+    min-width: 300px;
+  }
+
+  h1 {
+    font-weight: bold;
+  }
+
+  .product-image {
+    max-width: 300px;
+    height: auto;
+    border-radius: 8px;
+  }
+
+  .product-price {
+    font-size: 1.5em;
+    color: #333;
+    margin-top: 10px;
+  }
+
+  .product-price span {
+    font-weight: normal;
+  }
+
+  .product-price strong {
+    font-weight: bold;
+  }
+
+  .quantity-info {
+    margin-top: 5px;
+    font-size: 0.9em;
+    color: #555;
+  }
+
+  .product-info {
+    margin-top: 20px;
+  }
+
+  .product-info h2 {
+    margin-bottom: 10px;
+  }
+
+  ul {
+    list-style-type: disc;
+    padding-left: 20px;
+  }
+
+  .buttons {
+    margin-top: 20px;
+  }
+
+  .btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1em;
+    margin-right: 10px;
+  }
+
+  .add-to-cart {
+    background-color: #d3f9d8;
+    color: #333;
+  }
+
+  .buy-now {
+    background-color: #4CAF50;
+    color: white;
+  }
+
+  /* Additional styling for responsiveness */
+  @media(max-width: 768px) {
+    .product-container {
+      flex-direction: column;
+    }
+  }
+</style>
+
+</head>
+<body>
+<div class="product-container">
+<div class="product-details">
+<h1>Chicken Boneless Breast</h1>
+<div class="product-info">
+<p>Indulge in the tender and juicy taste of our Premium Chicken Whole Skinless. Our chicken is sourced from trusted farms and processed with utmost care to ensure a delicious and healthy eating experience. With no added hormones or antibiotics, our chicken is perfect for grilling, roasting, or cooking your favorite chicken recipes.</p>
+    <h2>Key Features</h2>
+    <ul>
+      <li>Tender and juicy: Our chicken is carefully selected and processed to ensure maximum tenderness and juiciness.</li>
+      <li>No added hormones or antibiotics: Our chicken is raised without any added hormones or antibiotics, ensuring a healthier eating experience.</li>
+      <li>Skinless: Our chicken is skinless, making it a great option for those looking for a leaner protein source.</li>
+      <li>Perfect for grilling, roasting, or cooking: Our chicken is versatile and can be cooked in a variety of ways to suit your taste preferences.</li>
+    </ul>
+
+    <h2>Product Details</h2>
+    <ul>
+      <li>Weight: 1.5 kg – 2 kg</li>
+      <li>Packaging: Vacuum-packed to ensure freshness</li>
+      <li>Shelf Life: 2-3 days from delivery date</li>
+      <li>Storage Instructions: Store in refrigerator at 0–4°C</li>
+    </ul>
+    </div>
+    </div>
+
+  <div class="product-image-container">
+  <img src="Chicken Boneless Breast Fillet.png" alt="Chicken Boneless Breast" class="product-image" />
+    <div class="product-price">₹107 <span>250 GM</span></div>
+    <div class="quantity-info">In Stoke : 13</div>
+    <div class="buttons">
+    <a href="cart.html" class="btn add-to-cart" onclick="addToCart(); return false;">Add to cart</a>
+    <a href="cart.html" class="btn buy-now">Buy Now</a>
+    </div>
+  </div>
+
+  </div>
+
+<script>
+  function addToCart() {
+    const product = {
+      name: "Chicken Boneless breast",
+      price: 107,
+      weight: "250 GM",
+      quantity: 1,
+      description: "Tender and juicy chicken, skinless, vacuum-packed.",
+    };
+
+    // Retrieve existing cart or initialize empty
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    // Check if product already exists in cart (matching by name)
+    const existingIndex = cart.findIndex(item => item.name === product.name);
+    if (existingIndex >= 0) {
+      // Increment quantity
+      cart[existingIndex].quantity += 1;
+    } else {
+      // Add new item
+      cart.push(product);
+    }
+
+    // Save back to localStorage
+    localStorage.setItem('cart', JSON.stringify(cart));
+    alert('Product added to cart!');
+  }
+</script>
+</body>
+</html>
